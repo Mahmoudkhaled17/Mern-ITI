@@ -1,28 +1,30 @@
+# Exercise 0.4 – New Note Diagram
+
+
+```mermaid
 sequenceDiagram
-    participant browser
-    participant server
+    participant User
+    participant Browser
+    participant Server
 
-    Note right of browser: User writes a note and clicks Save
+    User->>Browser: Write note and click Save
+    Browser->>Server: POST /new_note
 
-    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
-    activate server
-    Note right of server: Server receives note content from form data
+    Note right of Server: Server saves the note
 
-    server-->>browser: HTTP 302 Redirect to /notes
-    deactivate server
+    Server-->>Browser: HTTP 302 Redirect (/notes)
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
-    activate server
-    server-->>browser: HTML document
-    deactivate server
+    Browser->>Server: GET /notes
+    Server-->>Browser: HTML document
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
-    server-->>browser: CSS file
+    Browser->>Server: GET main.css
+    Server-->>Browser: CSS file
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
-    server-->>browser: JavaScript file
+    Browser->>Server: GET main.js
+    Server-->>Browser: JavaScript file
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
-    server-->>browser: Updated notes JSON
+    Browser->>Server: GET data.json
+    Server-->>Browser: JSON containing notes
 
-    Note right of browser: Browser renders the updated notes list
+    Browser->>Browser: Render updated notes list
+```
