@@ -6,6 +6,7 @@ import Greeting from './Greeting.jsx';
 import Test from './Test.jsx';
 import {Newbutton} from './Button.jsx';
 import {ListFun} from './App.tsx';
+import Todolist from './Todolist.jsx';
 
 
 createRoot(document.getElementById('root')!).render(
@@ -17,6 +18,8 @@ createRoot(document.getElementById('root')!).render(
     <h1>mafdsf</h1>
     <h2>mafdsf</h2>
     <ListFun />
+    <Todolist />
+
   </StrictMode>,
 );
 
