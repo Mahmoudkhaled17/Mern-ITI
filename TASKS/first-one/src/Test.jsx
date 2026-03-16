@@ -12,5 +12,6 @@ function Test() {
 <form>
 <input type="text"></input>
 </form>
+<p>--------------------------</p>
 </>)}
 export default Test;
