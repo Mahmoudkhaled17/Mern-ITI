@@ -7,7 +7,7 @@ import Test from './Test.jsx';
 import {Newbutton} from './Button.jsx';
 import {ListFun} from './App.tsx';
 import Todolist from './Todolist.jsx';
-
+import ColorP from './ColorBotton.jsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -19,6 +19,7 @@ createRoot(document.getElementById('root')!).render(
     <h2>mafdsf</h2>
     <ListFun />
     <Todolist />
+    <ColorP />
 
   </StrictMode>,
 );
