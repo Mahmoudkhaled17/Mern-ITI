@@ -1,18 +1,31 @@
-# React + Vite
+# CV Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application to build a professional CV/résumé.  
+Built as part of [The Odin Project](https://www.theodinproject.com/) curriculum.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Personal Info** — name, email, phone
+- **Education** — multiple entries (school, degree, dates)
+- **Experience** — multiple entries (company, position, responsibilities, dates)
+- Edit / Submit flow per section
+- Live CV preview rendered once all sections are saved
+- Dark theme with elegant typography
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- React 18 (Vite)
+- CSS custom properties (no external UI library)
+- Google Fonts: Playfair Display + DM Sans
 
-Note: This will impact Vite dev & build performances.
+## Getting Started
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deploy
+
+Push to GitHub and import to [Netlify](https://netlify.com), [Vercel](https://vercel.com), or [Cloudflare Pages](https://pages.cloudflare.com).
+Vite is auto-detected on all three platforms — just set the build command to `npm run build` and output directory to `dist`.

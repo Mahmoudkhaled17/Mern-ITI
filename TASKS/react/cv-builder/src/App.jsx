@@ -1,49 +1,37 @@
-import { useState } from 'react'
-import GeneralSection from './components/GeneralSection'
-import EducationSection from './components/EducationSection'
-import ExperienceSection from './components/ExperienceSection'
-import CVPreview from './components/CVPreview'
-import './styles/sections.css'
-import './styles/preview.css'
+import { useState } from "react";
+import PersonalInfo from "./personalInfo";
+import Education from "./education";
+import Experience from "./experience";
+import CvPreview from "./cvPreview";
+import "./index.css";
 
 function App() {
-  const [tab, setTab] = useState('editor')
-
-  const [general, setGeneral] = useState({
-    name: '', title: '', email: '', phone: '', location: '', url: '', submitted: false,
-  })
-  const [education, setEducation] = useState({
-    entries: [{ school: '', degree: '', field: '', from: '', to: '' }],
-    submitted: false,
-  })
-  const [experience, setExperience] = useState({
-    entries: [{ company: '', position: '', responsibilities: '', from: '', to: '' }],
-    submitted: false,
-  })
+  const [general, setGeneral] = useState({ name: "", email: "", phone: "" });
+  const [education, setEducation] = useState({ school: "", title: "", dateFrom: "", dateTo: "" });
+  const [experience, setExperience] = useState({ company: "", position: "", responsibilities: "", dateFrom: "", dateTo: "" });
+  const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div className="app-wrapper">
-      <header className="app-header">
-        <h1 className="app-title">CV <span>Builder</span></h1>
-        <div className="tab-bar">
-          <button className={`tab ${tab === 'editor' ? 'active' : ''}`} onClick={() => setTab('editor')}>Edit</button>
-          <button className={`tab ${tab === 'preview' ? 'active' : ''}`} onClick={() => setTab('preview')}>Preview</button>
-        </div>
-      </header>
+    <div className="app">
+      <h1>CV Builder</h1>
 
-      {tab === 'editor' ? (
-        <div className="editor-pane">
-          <GeneralSection data={general} onSave={setGeneral} />
-          <EducationSection data={education} onSave={setEducation} />
-          <ExperienceSection data={experience} onSave={setExperience} />
-        </div>
-      ) : (
-        <div className="preview-pane">
-          <CVPreview general={general} education={education} experience={experience} />
-        </div>
+      <PersonalInfo data={general} onChange={setGeneral} submitted={submitted} />
+      <Education data={education} onChange={setEducation} submitted={submitted} />
+      <Experience data={experience} onChange={setExperience} submitted={submitted} />
+
+      <div className="actions">
+        {!submitted ? (
+          <button className="btn-save" onClick={() => setSubmitted(true)}>Save CV</button>
+        ) : (
+          <button className="btn-edit" onClick={() => setSubmitted(false)}>Edit CV</button>
+        )}
+      </div>
+
+      {submitted && (
+        <CvPreview general={general} education={education} experience={experience} />
       )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
